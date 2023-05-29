@@ -141,7 +141,7 @@ export const Hoc = defineComponent({
       if (isRootNode && !showNode.value) return null;
 
       const builtSlots = slotSchema.value ? buildSlots(slotSchema.value, node) : slots;
-
+      console.log('comp', comp);
       return comp
         ? isFragment(comp)
           ? h(Fragment, builtSlots.default?.())

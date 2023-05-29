@@ -8,6 +8,7 @@ export default defineConfig({
     'process.env.NODE_ENV': JSON.stringify('production'),
   },
   build: {
+    minify: false,
     lib: {
       name: 'LCVueSimulatorRenderer',
       entry: 'src/index.ts',

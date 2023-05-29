@@ -348,6 +348,7 @@ export function useLeaf(
    * @param comp - 节点渲染的组件，若不传入，则根据节点的 componentName 推断
    */
   const renderLive: RenderComponent = (nodeSchema, blockScope, comp) => {
+    console.log('renderLive');
     return render(nodeSchema, Live, blockScope, comp);
   };
 
@@ -366,7 +367,9 @@ export function useLeaf(
     node?: Node | null,
     blockScope?: BlockScope | null
   ): Slots => {
+    console.log('buildSlots1');
     return Object.keys(slots).reduce((prev, next) => {
+      console.log('pre', 'next');
       const slotSchema = slots[next];
       const isDefaultSlot = next === 'default';
 
@@ -647,6 +650,7 @@ export function useLeaf(
 }
 
 export function useRenderer(rendererProps: RendererProps, scope: RuntimeScope) {
+  console.log('useRenderer');
   const schemaRef = computed(() => rendererProps.__schema);
 
   const leafProps: LeafProps = {
@@ -664,6 +668,7 @@ export function useRenderer(rendererProps: RendererProps, scope: RuntimeScope) {
 }
 
 export function useRootScope(rendererProps: RendererProps, setupConext: object) {
+  console.log('useRootScope');
   const { __schema: schema, __scope: extraScope, __parser: parser } = rendererProps;
 
   const {
@@ -703,6 +708,7 @@ export function useRootScope(rendererProps: RendererProps, setupConext: object) 
   callHook('initData');
   if (stateSchema) {
     const states = parser.parseSchema<object>(stateSchema);
+    console.log('states', states);
     states && addToScope(scope, AccessTypes.DATA, states);
   }
 

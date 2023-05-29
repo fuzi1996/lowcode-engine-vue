@@ -15,7 +15,9 @@
     "dist"
   ],
   "scripts": {
+    "start": "vue-cli-service serve",
     "build": "vite build && vite build -c vite.config.umd.ts",
+    "build:watch": "vite build -c vite.config.umd.ts --watch",
     "lint:type": "tsc -p ./tsconfig.json --noEmit",
     "prepack": "pnpm build"
   },
@@ -29,6 +31,10 @@
     "@alilc/lowcode-types": "^1.1.3",
     "@vitejs/plugin-vue": "^4.0.0",
     "@vitejs/plugin-vue-jsx": "^3.0.0",
+    "@vue/cli-plugin-babel": "^5.0.8",
+    "@vue/cli-plugin-eslint": "^5.0.8",
+    "@vue/cli-plugin-typescript": "^5.0.8",
+    "@vue/cli-service": "^5.0.8",
     "deepmerge": "^4.3.0",
     "vite": "^4.1.4",
     "vite-plugin-lib-types": "^0.1.2",

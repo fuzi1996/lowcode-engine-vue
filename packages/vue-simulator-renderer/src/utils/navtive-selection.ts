@@ -1,5 +1,6 @@
 let nativeSelectionEnabled = true;
 const preventSelection = (e: Event) => {
+  console.log('preventSelection');
   if (nativeSelectionEnabled) {
     return null;
   }

@@ -120,6 +120,7 @@ const VueRenderer = defineComponent({
         props.onCompGetCtx?.(schema, inst);
       },
       rerender: debounce(() => {
+        console.log('rerender');
         const id = props.schema.id;
         const node = id && getNode(id);
         if (node) {

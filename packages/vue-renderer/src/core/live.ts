@@ -15,6 +15,7 @@ export const Live = defineComponent({
       if (isFragment(comp)) {
         return h(Fragment, slots.default?.());
       }
+      console.log('LIVE');
       return comp
         ? h(
             comp,

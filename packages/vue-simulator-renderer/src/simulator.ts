@@ -378,6 +378,7 @@ function createSimulatorRenderer() {
 
   let running = false;
   simulator.run = () => {
+    console.log('入口');
     if (running) return;
     running = true;
     const containerId = 'app';
