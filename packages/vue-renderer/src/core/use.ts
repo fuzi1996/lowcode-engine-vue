@@ -225,6 +225,7 @@ export function useLeaf(
     blockScope?: MaybeArray<BlockScope | undefined | null>,
     comp?: Component | typeof Fragment
   ): VNode | VNode[] | null => {
+    console.log('render');
     const scope = mergeScope(leafProps.__scope, blockScope);
 
     // 若 schema 不为 NodeSchema，则直接渲染
@@ -440,6 +441,7 @@ export function useLeaf(
     blockScope?: BlockScope | null,
     prop?: Prop | null
   ): any => {
+    console.log('buildNormalProp');
     if (isJSExpression(schema) || isJSFunction(schema)) {
       // 处理表达式和函数
       return parser.parseExpression(schema, scope);
@@ -502,6 +504,7 @@ export function useLeaf(
     blockScope?: BlockScope | null,
     prop?: Prop | null
   ): any => {
+    console.log('buildRefProp');
     if (isString(schema)) {
       const field = schema;
       let lastInst: unknown = null;
@@ -560,6 +563,7 @@ export function useLeaf(
     blockScope?: BlockScope | null,
     extraProps?: Record<string, unknown>
   ): any => {
+    console.log('buildProps');
     // 属性预处理
     const processed: Record<string, unknown> = {};
     Object.keys(propsSchema).forEach((propKey) => {
@@ -852,6 +856,7 @@ export const buildSchema = (schema: NodeSchema, node?: Node | null) => {
  * @param val - 属性值
  */
 const processProp = (target: Record<string, unknown>, key: string, val: unknown) => {
+  console.log('processProp');
   if (key.startsWith('v-model')) {
     // 双向绑定逻辑
     const matched = key.match(/v-model(?::(\w+))?$/);

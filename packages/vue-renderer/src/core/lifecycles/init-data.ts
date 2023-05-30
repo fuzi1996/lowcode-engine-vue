@@ -11,6 +11,7 @@ export function initData(
   schema: unknown,
   scope: RuntimeScope
 ): void {
+  console.log('initData');
   const dataOptions = parser.parseSchema(schema, scope);
 
   const dataResult = isFunction(dataOptions)

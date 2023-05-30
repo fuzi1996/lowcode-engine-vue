@@ -93,6 +93,7 @@ export class SchemaParser {
   };
   parseSchema<T>(schema: T, scope?: RuntimeScope | boolean): T;
   parseSchema(schema: unknown, scope?: RuntimeScope | boolean): unknown {
+    console.log('parseSchema', schema, scope);
     if (isJSExpression(schema) || isJSFunction(schema)) {
       return this.parseExpression(schema, scope);
     } else if (isI18nData(schema)) {

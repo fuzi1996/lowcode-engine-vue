@@ -113,6 +113,7 @@ function createDocumentInstance(
   };
 
   const mountInstance = (id: string, instanceOrEl: ComponentInstance | HTMLElement) => {
+    console.log('mountInstance id', id, 'instanceOrEl', instanceOrEl);
     const docId = document.id;
     if (instanceOrEl == null) {
       let instances = instancesMap.get(id);
@@ -195,6 +196,7 @@ function createDocumentInstance(
     path: computed(() => parseFileNameToPath(schema.value.fileName ?? '')),
     key: computed(() => `${document.id}:${timestamp.value}`),
     scope: computed(() => {
+      console.log('scope');
       const _schema = schema.value;
 
       const {
