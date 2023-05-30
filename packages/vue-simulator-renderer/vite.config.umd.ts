@@ -9,6 +9,8 @@ export default defineConfig({
   },
   build: {
     minify: false,
+    sourcemap: true,
+    target: 'ES2018',
     lib: {
       name: 'LCVueSimulatorRenderer',
       entry: 'src/index.ts',

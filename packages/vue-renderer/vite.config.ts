@@ -8,6 +8,7 @@ export default defineConfig({
   build: {
     target: 'ES2018',
     minify: false,
+    sourcemap: true,
     lib: {
       entry: 'src/index.ts',
       fileName: () => 'vue-renderer.mjs',
